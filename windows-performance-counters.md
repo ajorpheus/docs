@@ -334,13 +334,78 @@ Content of `.\Counters-and-paths.txt` separated by CounterSet
 
 # All CounterSets
 
+This section lists all the available CounterSets and commands to get more information about a given counterset.
+
 ## Commands
 
+### Generate a sorted list of all countersets
 ```
 PS> Get-Counter -ListSet * |
 >>   Sort-Object -Property CounterSetName |
->>   Format-Table CounterSetName, CounterSetType -AutoSize | Out-File counter_names.log
+>>   Format-Table CounterSetName, CounterSetType -AutoSize
 ```
+
+### Get more information about a specifc counterset
+```
+PS> Get-Counter -ListSet "Processor Information"
+
+CounterSetName     : Processor Information
+MachineName        : .
+CounterSetType     : MultiInstance
+Description        : The Processor Information performance counter set consists of counters that measure aspects of
+                     processor activity. The processor is the part of the computer that performs arithmetic and
+                     logical computations, initiates operations on peripherals, and runs the threads of processes. A
+                     computer can have multiple processors. On some computers, processors are organized in NUMA nodes
+                     that share hardware resources such as physical memory. The Processor Information counter set
+                     represents each processor as a pair of numbers, where the first number is the NUMA node number
+                     and the second number is the zero-based index of the processor within that NUMA node. If the
+                     computer does not use NUMA nodes, the first number is zero.
+Paths              : {\Processor Information(*)\Performance Limit Flags, \Processor Information(*)\% Performance
+                     Limit, \Processor Information(*)\% Privileged Utility, \Processor Information(*)\% Processor
+                     Utility...}
+PathsWithInstances : {\Processor Information(0,0)\Performance Limit Flags, \Processor Information(0,1)\Performance
+                     Limit Flags, \Processor Information(0,2)\Performance Limit Flags, \Processor
+                     Information(0,3)\Performance Limit Flags...}
+Counter            : {\Processor Information(*)\Performance Limit Flags, \Processor Information(*)\% Performance
+                     Limit, \Processor Information(*)\% Privileged Utility, \Processor Information(*)\% Processor
+                     Utility...}
+```
+
+### Get more information about the PATHS within a specifc counterset
+
+```
+PS> (Get-Counter -ListSet "Processor Information").paths
+
+\Processor Information(*)\Performance Limit Flags
+\Processor Information(*)\% Performance Limit
+\Processor Information(*)\% Privileged Utility
+\Processor Information(*)\% Processor Utility
+\Processor Information(*)\% Processor Performance
+\Processor Information(*)\Idle Break Events/sec
+\Processor Information(*)\Average Idle Time
+\Processor Information(*)\Clock Interrupts/sec
+\Processor Information(*)\Processor State Flags
+\Processor Information(*)\% of Maximum Frequency
+\Processor Information(*)\Processor Frequency
+\Processor Information(*)\Parking Status
+\Processor Information(*)\% Priority Time
+\Processor Information(*)\C3 Transitions/sec
+\Processor Information(*)\C2 Transitions/sec
+\Processor Information(*)\C1 Transitions/sec
+\Processor Information(*)\% C3 Time
+\Processor Information(*)\% C2 Time
+\Processor Information(*)\% C1 Time
+\Processor Information(*)\% Idle Time
+\Processor Information(*)\DPC Rate
+\Processor Information(*)\DPCs Queued/sec
+\Processor Information(*)\% Interrupt Time
+\Processor Information(*)\% DPC Time
+\Processor Information(*)\Interrupts/sec
+\Processor Information(*)\% Privileged Time
+\Processor Information(*)\% User Time
+\Processor Information(*)\% Processor Time
+```
+
 
 ## Output - List of All CounterSets
 

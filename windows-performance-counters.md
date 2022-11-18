@@ -1,4 +1,4 @@
-<!-- vim-markdown-toc GitLab -->
+<!-- vim-markdown-toc GFM -->
 
 * [Glossary](#glossary)
 * [Description](#description)
@@ -12,7 +12,10 @@
     * [Network counters](#network-counters)
 * [All CounterSets](#all-countersets)
     * [Commands](#commands)
-    * [Output - List of All CounterSets](#output-list-of-all-countersets)
+        * [Generate a sorted list of all countersets](#generate-a-sorted-list-of-all-countersets)
+        * [Get more information about a specifc counterset](#get-more-information-about-a-specifc-counterset)
+        * [Get more information about the PATHS within a specifc counterset](#get-more-information-about-the-paths-within-a-specifc-counterset)
+    * [Output - List of All CounterSets](#output---list-of-all-countersets)
 
 <!-- vim-markdown-toc -->
 
@@ -585,4 +588,3 @@ XHCI CommonBuffer                                      SingleInstance
 XHCI Interrupter                                       SingleInstance
 XHCI TransferRing                                      SingleInstance
 ```
-
